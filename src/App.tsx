@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react'
+import { api_key } from "./config.json"
+import Home from './pages/Home'
 
 function App() {
-  return (
-    <div className="App">
-    </div>
-  );
+  useEffect(() => {
+    const kakao = window.Kakao
+    kakao.init(api_key)
+    console.log(kakao.isInitialized())
+  }, [])
+
+  return <div className='App'>
+    <Home />
+  </div>
 }
 
-export default App;
+export default App
