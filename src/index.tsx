@@ -2,7 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
+import { HashRouter, Route } from 'react-router-dom'
 import reportWebVitals from './reportWebVitals'
+import Home from './pages/Home'
 
 declare global {
   interface Window {
@@ -12,7 +14,11 @@ declare global {
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <HashRouter>
+      <App>
+        <Route exact path="/" component={Home}/>
+      </App>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 )

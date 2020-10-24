@@ -1,35 +1,36 @@
-export const Send = ()=>{
-    window.Kakao.Link.createDefaultButton({
-        container: '#CONTAINER_ID',
-        objectType: 'feed',
-        content: {
-          title: '디저트 사진',
-          description: '아메리카노, 빵, 케익',
-          imageUrl:
-            'http://mud-kage.kakao.co.kr/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
-          link: {
-            mobileWebUrl: 'https://developers.kakao.com',
-            androidExecParams: 'test',
-          },
-        },
-        social: {
-          likeCount: 10,
-          commentCount: 20,
-          sharedCount: 30,
-        },
-        buttons: [
-          {
-            title: '웹으로 이동',
-            link: {
-              mobileWebUrl: 'https://developers.kakao.com',
-            },
-          },
-          {
-            title: '앱으로 이동',
-            link: {
-              mobileWebUrl: 'https://developers.kakao.com',
-            },
-          },
-        ]
-      });
+export const Send = () => {
+  window.Kakao.Link.sendDefault({
+    objectType: 'feed',
+    content: {
+      title: '으아',
+      description: '시험공부 시러어',
+      imageUrl:
+        'https://picsum.photos/400/450',
+      link: {
+        mobileWebUrl: 'https://developers.kakao.com',
+        webUrl: 'https://developers.kakao.com'
+      }
+    },
+    social: {
+      likeCount: 286,
+      commentCount: 45,
+      sharedCount: 845
+    },
+    buttons: [
+      {
+        title: '웹으로 보기',
+        link: {
+          mobileWebUrl: 'https://google.com',
+          webUrl: 'https://google.com'
+        }
+      },
+      {
+        title: '앱으로 보기',
+        link: {
+            mobileWebUrl: 'https://google.com',
+            webUrl: 'https://google.com'
+        }
+      }
+    ]
+  })
 }
