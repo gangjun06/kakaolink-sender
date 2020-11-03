@@ -2,9 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
-import { HashRouter, Route } from 'react-router-dom'
+import { BrowserRouter, HashRouter, Route } from 'react-router-dom'
 import reportWebVitals from './reportWebVitals'
 import Home from './pages/Home'
+import Redirect from './pages/Redirect'
+
 
 declare global {
   interface Window {
@@ -14,11 +16,12 @@ declare global {
 
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter>
+    <BrowserRouter>
       <App>
         <Route exact path="/" component={Home}/>
+        <Route exact path="/redirect" component={Redirect}/>
       </App>
-    </HashRouter>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 )

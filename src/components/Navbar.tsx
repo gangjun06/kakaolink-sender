@@ -12,7 +12,7 @@ const Navbar: FC = () => {
   return (
     <AppBar position='static'>
       <Toolbar className='flex justify-between'>
-        <Typography variant='h6'>Kakao Utils</Typography>
+        <Typography variant='h6'>Kakaolink Sender</Typography>
         <div>
           <Button color='inherit' startIcon={<GitHub />}>
             Source Code

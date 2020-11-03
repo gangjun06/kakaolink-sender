@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "kakaolink sender",
+  "name": "카카오링크 전송하기",
   "icons": [
     {
       "src": "favicon.ico",
