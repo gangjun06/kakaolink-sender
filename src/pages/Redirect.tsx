@@ -7,9 +7,25 @@ const Redirect: FC = () => {
   useEffect(() => {
     const { href } = queryString.parse(history.location.search)
     if (!href) history.push('/')
-    else window.location.href = window.encodeURI(window.atob(Array.isArray(href) ? href[0] : href))
+    else
+      window.location.href = window.encodeURI(
+        window.atob(Array.isArray(href) ? href[0] : href)
+      )
   }, [])
-  return <></>
+  return (
+    <div>
+      <div
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          fontSize: '30px'
+        }}>
+        해당 사이트로 이동 중입니다
+      </div>
+    </div>
+  )
 }
 
 export default Redirect

@@ -25,15 +25,18 @@ const Home: FC = () => {
     fullWidth: true
   }
 
-  const [content, setContent] = useState<LinkContent>({
+  const defaultContent: LinkContent = {
     title: '',
     description: '',
     imageUrl: '',
     link: {
-      mobileWebUrl: '',
+      // mobileWebUrl: '',
       webUrl: ''
     }
-  })
+  }
+
+  const [content, setContent] = useState<LinkContent>(defaultContent)
+
   const [useImage, setUseImage] = useState<boolean>(false)
 
   const getValue = (target: EventTarget) =>
@@ -44,9 +47,20 @@ const Home: FC = () => {
   const handleSubmit = () => {
     const data: Link = {
       objectType: 'feed',
-      content
+      content: {
+        ...content,
+        link: {
+          webUrl: `${document.URL}Redirect?href=${window.btoa(
+            content.link.webUrl
+          )}`
+        }
+      }
     }
     Send(data)
+  }
+
+  const resetForm = () => {
+    setContent(defaultContent)
   }
 
   return (
@@ -110,13 +124,28 @@ const Home: FC = () => {
                 />
               )}
             </Box>
+            <br />
+            <TextValidator
+              label='링크'
+              name='url'
+              onChange={({ target }) =>
+                setContent({
+                  ...content,
+                  link: {
+                    webUrl: getValue(target)
+                  }
+                })
+              }
+              value={content.link.webUrl}
+              {...defaultInputProp}
+            />
           </Box>
         </CardContent>
         <CardActions>
           <Button variant='contained' color='primary' type='submit'>
             Send
           </Button>
-          <Button variant='outlined' color='secondary'>
+          <Button variant='outlined' color='secondary' onClick={resetForm}>
             Reset
           </Button>
         </CardActions>

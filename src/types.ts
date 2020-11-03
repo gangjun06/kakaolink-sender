@@ -10,7 +10,7 @@ export type LinkContent = {
   description: string
   imageUrl: string
   link: {
-    mobileWebUrl: string
+    mobileWebUrl?: string
     webUrl: string
   }
 }
